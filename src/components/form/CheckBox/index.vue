@@ -14,7 +14,7 @@
       label: {type: String, default: ''},             // 表单项标签名
       prop: {type: String, default: ''},              // 表单域 model 字段，在使用 validate、resetFields 方法的情况下
       border: {type: Boolean, default: false},        // 是否显示边框
-      size: {type: String, default: 'medium'},        // 大小，可取值medium / small / mini
+      size: {type: String, default: ''},        // 大小，可取值medium / small / mini
       dataSource: {type: Array, default: []}          // 数据
     },
     methods: {
