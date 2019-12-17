@@ -26,10 +26,10 @@
       label: {type: String, default: ''},             // 表单项标签名
       prop: {type: String, default: ''},              // 表单域 model 字段，在使用 validate、resetFields 方法的情况下
       type: {type: String, default: 'text'},          // 输入框类型
-      placeholder: {type: String, default: '请输入'},       // 输入框占位文本
+      placeholder: {type: String, default: '请输入'},  // 输入框占位文本
       clearable: {type: Boolean, default: false},     // 是否可清空
       disabled: {type: Boolean, default: false},      // 是否禁用
-      size: {type: String, default: ''},        // 输入框大小，可取值medium / small / mini
+      size: {type: String, default: ''},              // 输入框大小，可取值medium / small / mini
       prefixIcon: {type: String, default: ''},        // 输入框头部图标
       suffixIcon: {type: String, default: ''},        // 输入框尾部图标
       maxlength: {type: Number},                      // 最大输入长度
