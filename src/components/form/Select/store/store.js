@@ -36,7 +36,7 @@ class store {
               options = objToArray(REAL_NAME_STATUS, REAL_NAME_STATUS_V)
               break;
           }
-          console.log(options)
+
           commit('getOptions', options)
         }
       }

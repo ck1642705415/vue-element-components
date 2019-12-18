@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <TableC :columns="columns" :tableData="tableData"></TableC>
-    <AdvancedSearchC :searchForm="searchForm" :form="form"/>
+    <AdvancedSearchC :searchForm="searchForm" :form="form" @handleSearch="handleSearch"/>
   </div>
 </template>
 
@@ -11,6 +11,8 @@
   import AdvancedSearchC from "@/components/common/AdvancedSearch";
   import InputC from '@/components/form/Input'
   import SelectC from '@/components/form/Select'
+  import DatePickerC from '@/components/form/DatePicker'
+  import {SELECT_TYPES} from '@/constants'
 
   export default {
     name: "HelloWorld",
@@ -57,19 +59,42 @@
           {name: "张三", age: "25", label: "失败"}
         ],
         searchForm: [
-          {label: '姓名：', dataIndex: 'username', cmp: InputC,options:{placeholder:'请输入姓名'}},
-          {label: '年龄：', dataIndex: 'age', cmp: SelectC,options:{loadType:'ORDER_STATUS'}},
-          {label: '性别：', dataIndex: 'sex', cmp: InputC}
+          {label: '姓名：', dataIndex: 'username', cmp: InputC, options: {placeholder: '请输入姓名'}},
+          {
+            label: '年龄：',
+            dataIndex: 'age',
+            cmp: SelectC,
+            options: {loadType: SELECT_TYPES.ORDER_STATUS}
+          },
+          {
+            label: '年龄：',
+            dataIndex: 'aa',
+            cmp: SelectC,
+            options: {loadType: SELECT_TYPES.ORDER_STATUS}
+          },
+          {
+            label: '年龄：',
+            dataIndex: 'bb',
+            cmp: SelectC,
+            options: {loadType: SELECT_TYPES.ORDER_STATUS}
+          },
+          {
+            label: '年龄：',
+            dataIndex: 'cc',
+            cmp: DatePickerC,
+            options: {type:'month'}
+          },
         ],
         form: {
-          username: '',
-          age: '',
-          sex: ''
+          username: undefined,
+          age: undefined,
+          aa: undefined,
+          bb: undefined,
+          cc: undefined
         }
       };
     },
-    mounted(){
-      console.log('111')
+    mounted() {
     },
     methods: {
       handleEdit(row) {
@@ -77,6 +102,9 @@
       },
       handleConfirm() {
         console.log(111)
+      },
+      handleSearch(e){
+        console.log(e)
       }
     }
   };

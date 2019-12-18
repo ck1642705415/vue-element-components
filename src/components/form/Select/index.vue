@@ -1,5 +1,5 @@
 <template>
-  <el-form-item :label="label" :prop="prop">
+  <el-form-item :label="label" :prop="dataIndex">
     <el-select
       v-model="form[dataIndex]"
       :placeholder="placeholder"
@@ -24,9 +24,8 @@
       form: {type: Object},                            // 表单域（必传）
       dataIndex: {type: String},                           // 绑定值（必传）
       label: {type: String, default: ""},              // 表单项标签名
-      prop: {type: String, default: ""},               // 表单域 model 字段，在使用 validate、resetFields 方法的情况下
       disabled: {type: Boolean, default: false},       // 是否禁用
-      size: {type: String, default: ""},               // 大小，可取值medium / small / mini
+      size: {type: String, default: 'medium'},               // 大小，可取值medium / small / mini
       placeholder: {type: String, default: "请选择"},   // 占位文本
       clearable: {type: Boolean, default: false},      // 是否可以清空选项
       multiple: {type: Boolean, default: false},       // 是否多选
@@ -45,8 +44,6 @@
     },
     mounted() {
       this.store.SelectStore.dispatch("GET_SELECT_OPTIONS", {loadType: this.loadType});
-      console.log(this.store.SelectStore.getters.options);
-      console.log('333')
     },
     methods: {
       handleChange(e) {
