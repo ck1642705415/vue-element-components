@@ -5,58 +5,42 @@
 </template>
 
 <script>
-  import DatePicker from "@/components/form/DatePicker";
-  import RangePicker from "@/components/form/RangePicker";
-  import SwitchC from "@/components/form/Switch";
   import TableC from "@/components/common/Table";
+  import PopConfirmC from "@/components/common/Popconfirm";
 
   export default {
     name: "HelloWorld",
     components: {
-      DatePicker: DatePicker,
-      RangePicker: RangePicker,
-      SwitchC: SwitchC,
-      TableC: TableC
+      TableC: TableC,
+      PopConfirmC: PopConfirmC,
     },
     data() {
       return {
         columns: [
           {
             prop: "name",
-            label: "姓名",
-            formatter: row => {
-              return `<span>${row.name}</span>`;
-            }
+            label: "姓名"
           },
           {
             prop: "age",
-            label: "年龄",
-            formatter: row => {
-              return `<span>${row.age}</span>`;
-            }
+            label: "年龄"
           },
           {
             prop: "label",
             label: "标签",
-            render: (h, params) => {
-              return h(
-                "el-tag",
-                {
-                  props: {type: "success"} // 组件的props
-                },
-                params.row.label
-              );
-            }
+            render: (h, params) => {return h("el-tag", {props: {type: "success"}}, params.row.label)}
           },
           {
             prop: "",
             label: "操作",
-            formatter: row => {
-              return `
-              <a href="#" @click="handleEdit(row)">编辑</a>
-              <span class="driver-line"></span>
-              <a href="#">删除</a>
-            `;
+            render: (h, {row}) => {
+              return h("span", [
+                h('el-button',{props:{type:'text'},on:{click:()=>this.handleEdit(row)}},'编辑'),
+                h('el-divider',{props:{direction:'vertical'}}),
+                h(PopConfirmC,{props:{title:'确认删除吗？'},on:{handleConfirm:()=>this.handleConfirm()}},[
+                  h('el-button',{props:{type:'text'}},'删除')
+                ]),
+              ]);
             }
           }
         ],
@@ -69,6 +53,9 @@
     methods: {
       handleEdit(row) {
         console.log(row)
+      },
+      handleConfirm(){
+        console.log(111)
       }
     }
   };
