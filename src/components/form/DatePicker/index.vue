@@ -1,7 +1,7 @@
 <template>
   <el-form-item :label="label" :prop="prop">
     <el-date-picker
-      v-model="form[model]"
+      v-model="form[dataIndex]"
       :type="type"
       :placeholder="placeholder"
       :clearable="clearable"
@@ -16,7 +16,7 @@
     name:'DatePicker',
     props:{
       form: {type: Object},                           // 表单域（必传）
-      model: {type: String},                          // 绑定值（必传）
+      dataIndex: {type: String},                          // 绑定值（必传）
       label: {type: String, default: ''},             // 表单项标签名
       prop: {type: String, default: ''},              // 表单域 model 字段，在使用 validate、resetFields 方法的情况下
       type: {type: String, default: 'date'},          // 日期类型 可取值date / month / year / week / datetime

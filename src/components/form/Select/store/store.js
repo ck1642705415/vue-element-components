@@ -21,20 +21,23 @@ class store {
         }
       },
       mutations: {
-        async getOptions(state, loadType) {
-          switch (loadType) {
-            case SELECT_TYPES.ORDER_STATUS:
-              state.options = objToArray(ORDER_STATUS, ORDER_STATUS_V)
-              break;
-            case SELECT_TYPES.REAL_NAME_STATUS:
-              state.options = objToArray(REAL_NAME_STATUS, REAL_NAME_STATUS_V)
-              break;
-          }
+        async getOptions(state, options) {
+          state.options = options
         }
       },
       actions: {
         GET_SELECT_OPTIONS({commit}, {loadType}) {
-          commit('getOptions', loadType)
+          let options
+          switch (loadType) {
+            case SELECT_TYPES.ORDER_STATUS:
+              options = objToArray(ORDER_STATUS, ORDER_STATUS_V)
+              break;
+            case SELECT_TYPES.REAL_NAME_STATUS:
+              options = objToArray(REAL_NAME_STATUS, REAL_NAME_STATUS_V)
+              break;
+          }
+          console.log(options)
+          commit('getOptions', options)
         }
       }
     })

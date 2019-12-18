@@ -48,21 +48,12 @@
 </template>
 <script>
   import PaginationC from '@/components/common/Pagination'
+  import RenderComponent from '@/components/common/RenderComponent'
 
   export default {
     name: "Table",
     components: {
-      renderDom: {
-        functional: true,
-        props: {
-          row: Object,
-          render: Function
-        },
-        render: (h, ctx) => {
-          const params = {row: ctx.props.row};
-          return ctx.props.render(h, params);
-        }
-      },
+      renderDom: RenderComponent,
       PaginationC: PaginationC
     },
     props: {

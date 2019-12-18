@@ -2,7 +2,7 @@
   <el-form-item :label="label" :prop="prop">
     <el-input
       :type="type"
-      v-model="form[model]"
+      v-model="form[dataIndex]"
       :placeholder="placeholder"
       :clearable="clearable"
       :disabled="disabled"
@@ -22,9 +22,10 @@
     name: 'InputC',
     props: {
       form: {type: Object},                           // 表单域（必传）
-      model: {type: String},                          // 绑定值（必传）
+      dataIndex: {type: String},                          // 绑定值（必传）
       label: {type: String, default: ''},             // 表单项标签名
       prop: {type: String, default: ''},              // 表单域 model 字段，在使用 validate、resetFields 方法的情况下
+
       type: {type: String, default: 'text'},          // 输入框类型
       placeholder: {type: String, default: '请输入'},  // 输入框占位文本
       clearable: {type: Boolean, default: false},     // 是否可清空
