@@ -20,7 +20,7 @@
       TableC: TableC,
       PopConfirmC: PopConfirmC,
       InputC: InputC,
-      AdvancedSearchC: AdvancedSearchC,
+      AdvancedSearchC: AdvancedSearchC
     },
     data() {
       return {

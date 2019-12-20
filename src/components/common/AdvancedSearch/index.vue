@@ -17,8 +17,8 @@
         </el-col>
       </template>
       <el-col :span="6" style="text-align: right;float: right;">
-        <el-button type="primary" size="small" @click="onSearch">搜索</el-button>
-        <el-button type="default" size="small" @click="resetForm('form')">重置</el-button>
+        <el-button type="primary" size="medium" @click="onSearch">搜索</el-button>
+        <el-button type="default" size="medium" @click="resetForm('form')">重置</el-button>
         <span style="color: #409EFF;cursor: pointer;margin-left: 10px" v-if="searchForm.length>3"
               @click="changeSearchType">
           <span style="font-size: 14px">{{searchType==='simple'?'高级搜索':'简易搜索'}}</span>
@@ -96,7 +96,15 @@
   .el-form-item {
     margin-bottom: 10px !important;
   }
-
+  /deep/ .el-form-item__content{
+    /*line-height: 0 !important;*/
+  }
+  /deep/ .el-input--medium .el-input__icon{
+    line-height: 40px !important;
+  }
+  /deep/ .el-input--small .el-input__icon{
+    line-height: 40px !important;
+  }
   .el-row {
     margin-bottom: 0;
   }
