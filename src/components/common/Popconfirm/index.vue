@@ -2,7 +2,7 @@
   <el-popover
     placement="top"
     v-model="visible">
-    <p><i :class="iconName" :style="{color: iconColor,marginRight:'5px'}"></i>{{title}}</p>
+    <p style="margin-bottom: 10px"><i :class="iconName" :style="{color: iconColor,marginRight:'5px'}"></i>{{title}}</p>
     <div style="text-align: right; margin: 0">
       <el-button size="mini" type="text" @click="handleCancel">{{cancelButtonText}}</el-button>
       <el-button type="primary" size="mini" @click="handleConfirm">{{confirmButtonText}}</el-button>

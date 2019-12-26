@@ -4,11 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import './theme/index.scss'
 import store from './store'
-
+import Wrapper from './components/common/Wrapper'
+import TableC from './components/common/Table'
+import AdvancedSearchC from './components/common/AdvancedSearch'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.component('TableC',TableC)
+Vue.component('AdvancedSearchC',AdvancedSearchC)
+Vue.component('WrapperC',Wrapper)
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="form" :model="form" label-width="80px">
+  <el-form ref="form" :model="form" label-width="110px">
     <el-row :gutter="20" style="background-color:#f9f9f9;padding: 10px 10px 0 0;box-sizing: border-box">
       <template v-for="item in searchForShow">
         <el-col :span="6">
@@ -16,10 +16,10 @@
           />
         </el-col>
       </template>
-      <el-col :span="6" style="text-align: right;float: right;">
-        <el-button type="primary" size="medium" @click="onSearch">搜索</el-button>
-        <el-button type="default" size="medium" @click="resetForm('form')">重置</el-button>
-        <span style="color: #409EFF;cursor: pointer;margin-left: 10px" v-if="searchForm.length>3"
+      <el-col :span="6" style="line-height: 37px;text-align: right;float: right;">
+        <el-button type="primary" size="small" @click="onSearch">搜索</el-button>
+        <el-button type="default" size="small" @click="resetForm('form')">重置</el-button>
+        <span class="advanced-search-btn" style="cursor: pointer;margin-left: 10px" v-if="searchForm.length>3"
               @click="changeSearchType">
           <span style="font-size: 14px">{{searchType==='simple'?'高级搜索':'简易搜索'}}</span>
           <i :class="searchType==='simple'?'el-icon-caret-bottom':'el-icon-caret-top'"></i>
@@ -92,7 +92,11 @@
     }
   }
 </script>
-<style scoped>
+<style scoped lang="scss">
+  @import "@/style/varible.scss";
+  .el-form{
+    margin-bottom: 15px;
+  }
   .el-form-item {
     margin-bottom: 10px !important;
   }
@@ -107,5 +111,8 @@
   }
   .el-row {
     margin-bottom: 0;
+  }
+  .advanced-search-btn{
+    color: $--color-primary;
   }
 </style>

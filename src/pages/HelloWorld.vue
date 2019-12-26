@@ -1,14 +1,12 @@
 <template>
-  <div class="hello">
-    <TableC :columns="columns" :tableData="tableData"></TableC>
+  <WrapperC>
     <AdvancedSearchC :searchForm="searchForm" :form="form" @handleSearch="handleSearch"/>
-  </div>
+    <TableC :columns="columns" :tableData="tableData"/>
+  </WrapperC>
 </template>
 
 <script>
-  import TableC from "@/components/common/Table";
   import PopConfirmC from "@/components/common/Popconfirm";
-  import AdvancedSearchC from "@/components/common/AdvancedSearch";
   import InputC from '@/components/form/Input'
   import SelectC from '@/components/form/Select'
   import DatePickerC from '@/components/form/DatePicker'
@@ -17,10 +15,8 @@
   export default {
     name: "HelloWorld",
     components: {
-      TableC: TableC,
       PopConfirmC: PopConfirmC,
-      InputC: InputC,
-      AdvancedSearchC: AdvancedSearchC
+      InputC: InputC
     },
     data() {
       return {
@@ -54,10 +50,7 @@
             }
           }
         ],
-        tableData: [
-          {name: "陈开", age: "27", label: "成功"},
-          {name: "张三", age: "25", label: "失败"}
-        ],
+        tableData: [],
         searchForm: [
           {label: '姓名：', dataIndex: 'username', cmp: InputC, options: {placeholder: '请输入姓名'}},
           {
