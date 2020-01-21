@@ -36,7 +36,6 @@ class store {
               options = objToArray(REAL_NAME_STATUS, REAL_NAME_STATUS_V)
               break;
           }
-
           commit('getOptions', options)
         }
       }

@@ -1,15 +1,19 @@
 <template>
   <el-menu
-    :default-active="menuList[0].path"
+    :default-active="$route.fullPath"
+    :default-openeds="defaultOpen"
+    :unique-opened="true"
     class="el-menu-vertical-demo"
     background-color="rgb(67,74,80)"
     text-color="#fff">
     <template v-for="item in menuList">
       <template v-if="!item.subMenu">
-        <el-menu-item :index="item.path">
-          <i class="el-icon-menu"></i>
-          <span slot="title">{{item.title}}</span>
-        </el-menu-item>
+        <router-link :to="item.path">
+          <el-menu-item :index="item.path">
+            <i class="el-icon-menu"></i>
+            <span slot="title">{{item.title}}</span>
+          </el-menu-item>
+        </router-link>
       </template>
       <template v-else>
         <el-submenu :index="item.path">
@@ -18,7 +22,11 @@
             <span>{{item.title}}</span>
           </template>
           <template v-for="subItem in item.subMenu">
-            <el-menu-item :index="subItem.path">{{subItem.title}}</el-menu-item>
+            <router-link :to="subItem.path">
+              <el-menu-item :index="subItem.path">
+                {{subItem.title}}
+              </el-menu-item>
+            </router-link>
           </template>
         </el-submenu>
       </template>
@@ -32,11 +40,21 @@
     name: 'Aside',
     data() {
       return {
-        menuList: Menu
+        menuList: Menu,
+        defaultOpen: []
+      }
+    },
+    computed: {
+      getDefaultOpen(){
+        const [a,b,c] = this.$route.fullPath.split('/')
+        const defaultOpenPath = [a,b,c].join('/')
+        return [defaultOpenPath]
       }
     },
     mounted() {
-
+      const [a,b,c] = this.$route.fullPath.split('/')
+      const defaultOpenPath = [a,b,c].join('/')
+      this.defaultOpen = [defaultOpenPath]
     }
   }
 </script>

@@ -7,10 +7,10 @@
       <el-header height="60px">
         <HeaderC/>
       </el-header>
-      <el-header class="breadcrumb-wrapper">
+      <el-header class="breadcrumb-wrapper" v-if="$route.name!=='Home'">
         <BreadcrumbC/>
       </el-header>
-      <div class="main-wrapper">
+      <div class="main-wrapper" :style="{height:$route.name!=='Home'?'calc(100% - 120px)':'calc(100% - 75px)',marginTop:$route.name!=='Home'?'0':'15px'}">
         <router-view/>
       </div>
     </el-main>
@@ -47,12 +47,13 @@
     align-items: center;
     background-color: #fff;
   }
-  .breadcrumb-wrapper{
+
+  .breadcrumb-wrapper {
     background-color: #f9f9f9;
   }
-  .main-wrapper{
+
+  .main-wrapper {
     width: 100%;
-    height: calc(100% - 120px);
     padding: 0 15px 15px 15px;
     box-sizing: border-box;
   }
